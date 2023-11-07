@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
-// destructure a schema for mongoose?
-const { Schema } = mongoose;
 
 // define schema
-const bookSchema = new Schema({
+const bookSchema = new mongoose.Schema({
   title: String,
   description: String,
-  status: String,
+  status: Boolean,
 });
 
-// don't understand the exact structure here, practice I guess
+// create model called "Book" with schema of bookSchema
 const Book = mongoose.model("Book", bookSchema);
 
+// export model so we can use it other places
 module.exports = Book;
