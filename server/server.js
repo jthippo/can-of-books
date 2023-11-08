@@ -13,7 +13,6 @@ app.get("/", (_, response) => {
 });
 
 // set up link to database
-const mongoose = require("mongoose");
 const Book = require("./models/book");
 mongoose.connect(process.env.DATABASE_URL);
 

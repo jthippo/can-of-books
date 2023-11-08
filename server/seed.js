@@ -34,5 +34,3 @@ async function seed() {
 
 // run function!
 seed();
-
-// run node seed in the server cli back in classroom
