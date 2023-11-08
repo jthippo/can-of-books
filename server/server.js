@@ -23,3 +23,9 @@ app.get("/books", async (request, response) => {
   const books = await Book.find(request.query);
   response.json(books);
 });
+
+// findByIdAndDelete is self-explanatory
+app.delete("/books/:id", async (request, response) => {
+  const deletedBook = await Book.findByIdAndDelete(request.params.id);
+  response.json(deletedBook);
+});

@@ -23,7 +23,7 @@ async function seed() {
     {
       title: "Spot Goes to the Circus",
       description:
-        "Visionary fiction from 1982 following the visit of a yellow puppy to a nearby circus, written and drawn by a single multi-talented creator",
+        "Visionary fiction from 1982 following the visit of a yellow puppy to a nearby circus, written and drawn by a single multi-talented creator.",
       status: false,
     },
   ]);
