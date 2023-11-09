@@ -37,3 +37,12 @@ app.post("/books", async (request, response) => {
   const newBook = await Book.create(request.body);
   response.json(newBook);
 });
+
+// this is essentially a combination of syntax we've used above
+app.put("/books/:id", async (request, response) => {
+  const updatedBook = await Book.findByIdAndUpdate(
+    request.params.id,
+    request.body
+  );
+  response.json(updatedBook);
+});
