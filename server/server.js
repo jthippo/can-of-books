@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = 8080;
 
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
@@ -25,7 +26,14 @@ app.get("/books", async (request, response) => {
 });
 
 // findByIdAndDelete is self-explanatory
+// don't really understand params
 app.delete("/books/:id", async (request, response) => {
   const deletedBook = await Book.findByIdAndDelete(request.params.id);
   response.json(deletedBook);
+});
+
+// create is self explanatory, request.body sends the whole body i guess? documentation is frustratingly vague
+app.post("/books", async (request, response) => {
+  const newBook = await Book.create(request.body);
+  response.json(newBook);
 });

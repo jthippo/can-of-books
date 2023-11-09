@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./App.css";
+import Form from "./components/Form";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -25,9 +26,10 @@ function App() {
   }
 
   // map through our books array and render the relevent info
+  // also unsure about the line after Form, are we passing those as props?
   return (
     <>
-      <h1>Some books</h1>
+      <h1>Can-o-Books</h1>
       {books.map((book) => {
         return (
           <div key={book._id}>
@@ -40,6 +42,8 @@ function App() {
           </div>
         );
       })}
+      <h2>Add a book</h2>
+      <Form books={books} setBooks={setBooks} />
     </>
   );
 }
