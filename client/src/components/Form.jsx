@@ -4,7 +4,7 @@ import { useState } from "react";
 // WORK THIS BIT OUT MORE
 // passing books and setBooks as props from App.jsx i think?
 // formData state is blank(ish) object
-export default function Form({ books, setBooks, book, setBook }) {
+export default function Form({ books, setBooks, book, getBooks }) {
   const [formData, setFormData] = useState(
     book ?? {
       title: "",
@@ -33,11 +33,12 @@ export default function Form({ books, setBooks, book, setBook }) {
     setBooks([...books, res.data]);
   }
   // combo of concepts from above
+  // it wasn't working so we changed it, this is different to tim's
   async function updateBook(event) {
     event.preventDefault();
     const API = `http://localhost:8080/books/${book._id}`;
     await axios.put(API, formData);
-    setBook(formData);
+    getBooks();
   }
 
   return (

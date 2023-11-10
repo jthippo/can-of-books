@@ -39,6 +39,7 @@ function App() {
             <button onClick={() => deleteBook(book._id)}>
               Delete this book
             </button>
+            <Form book={book} getBooks={getBooks} />
           </div>
         );
       })}

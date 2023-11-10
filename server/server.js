@@ -40,6 +40,7 @@ app.post("/books", async (request, response) => {
 
 // this is essentially a combination of syntax we've used above
 app.put("/books/:id", async (request, response) => {
+  console.log(request.params.id);
   const updatedBook = await Book.findByIdAndUpdate(
     request.params.id,
     request.body
